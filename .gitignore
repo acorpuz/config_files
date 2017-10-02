@@ -8,9 +8,10 @@ Documents/
 IfsWorkshop_Containers/
 Shared_Mari/
 #
-## Don't ignore .gitignore, add files using filenames
+## Don't ignore .gitignore and README.md, add files using filenames
 # i.e. !.conkyrc, etc
 !.gitignore
+!/README.md
 # conky config
 !.conkyrc
 !.conky/*
