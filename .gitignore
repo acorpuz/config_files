@@ -1,0 +1,21 @@
+# Ignore everything
+*
+
+# Don't ignore directories, so we can recurse into them
+!*/
+## but ignore these...
+Documents/
+IfsWorkshop_Containers/
+Shared_Mari/
+#
+## Don't ignore .gitignore, add files using filenames
+# i.e. !.conkyrc, etc
+!.gitignore
+# conky config
+!.conkyrc
+!.conky/*
+# Vim
+!.vimrc
+# Shell configs
+!.zshrc
+!.bashrc

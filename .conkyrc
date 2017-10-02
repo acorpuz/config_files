@@ -1,0 +1,155 @@
+######################
+# - Conky settings - #
+######################
+update_interval 2.0
+total_run_times 0
+net_avg_samples 4
+cpu_avg_samples 6
+diskio_avg_samples 4
+
+double_buffer yes	# Avoids flicker
+no_buffers yes		# Subtract (file system) buffers from used memory?
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes			# Use Xft (anti-aliased font and stuff)
+xftfont Noto Sans:style=Bold:size=8
+xftalpha 0.8
+override_utf8_locale yes
+text_buffer_size 640
+use_spacer left
+
+#############################
+# - Window specifications - #
+#############################
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+alignment middle_right
+gap_x 10
+gap_y 10
+minimum_size 240 0
+maximum_width 240
+
+#########################
+# - Graphics settings - #
+#########################
+#draw_shades yes
+
+# Network interface must have an ip address to be considered up
+if_up_strictness address
+
+#default_color E2DACB
+#default_color FFFFFF
+ 
+# Colors (1 = Text; 2 = Data; 3 = heading)
+color1 AAAAAA
+color2 FFFFFF
+color3 999999
+color4 1793D0
+color5 0050BF
+
+# Load Lua for bargraphs (required)
+# Set the path to your script here.
+lua_load ~/.conky/bargraph_small.lua
+lua_draw_hook_post main_bars
+
+##############################
+# - Templates declarations - #
+##############################
+template1 ${goto 32}${color1}\1 ${alignr}${color2}\2${color}
+template2 ${goto 32}${color1}\1 ${goto 70}${color2}\2/\3 (\4%)
+template3 ${goto 32}${color1}\1: ${alignr}${color2}${fs_used \1}/${fs_size \1} (${fs_used_perc \1}%)${color}${voffset 12}
+#template3 ${goto 32}${color1}\1: ${alignr}${color2}${fs_used \1}/${fs_size \1} (${fs_used_perc \1}%)${color}${voffset 12}${goto 32}${fs_bar \1}
+#template4 ${color1}\1: ${color2}$alignr${fs_free \1} ${fs_bar 5,120 \1}
+template5 ${goto 36}${font Noto Sans:style=Bold:size=8}${color4}\1 ${font}$stippled_hr
+template6 ${goto 30}${color white}\1 ${goto 113}${color1}R/W: ${color2}${diskio_read \2}/${diskio_write \2}${color}${voffset 15}${goto 40}${hddtemp /dev/\2} °C${goto 75}${diskiograph \2 10,170 9951FF 1793D0}
+template7 ${goto 32}${font Noto Sans Mono:size=8}${color \1}${top name \2}${goto 140}${top cpu \2}${goto 200}${top mem \2}${font}${color}
+template8 ${goto 32}${color1}\1 ${alignr}${color2}${battery_percent \2}% (${battery_time \2})${color}
+TEXT
+
+${font Noto Sans:style=Bold:size=14}${nodename} ${hr 2}${font}
+${color4}${alignc}${font Noto Sans:style=Bold:size=18}${time %H:%M}${font}
+${alignc}${font Noto Sans:size=10}${time %A %d %B %Y}${font}
+#${voffset 5}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -26}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-41 | head -n1}${font}${color}
+${voffset 5}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -20}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-41 | head -n1}${font}${color}
+${voffset 5}${template1 kernel: ${kernel}}
+${template1 uptime: ${uptime}}
+${template8 Battery\ (internal): BAT0}
+#${goto 32}${battery_bar 5,120 BAT0}
+${template8 Battery\ (external): BAT1}
+#${goto 32}${battery_bar 5,120 BAT1}
+###########
+# - CPU - #
+###########
+${voffset 2}${color0}${font Poky:size=18}P${font}${color}${voffset -8}${goto 36}${font Noto Sans:style=Bold:size=10}${color4} ${exec cat /proc/cpuinfo | grep 'model name' | cut -c14-40 | head -n1}${font}$stippled_hr
+${voffset 4} ${color}${goto 32}Core1@${freq_g 1} GHz (${cpu cpu1}%)
+${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu1 10,145 999999 FF0000}${color}
+${color}${goto 32}Core2@${freq_g 2} GHz (${cpu cpu2}%)
+${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu2 10,145 999999 FF0000}${color}
+${color}${goto 32}Core3@${freq_g 3} GHz (${cpu cpu3}%)
+${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu3 10,145 999999 FF0000}${color}
+${color}${goto 32}Core4@${freq_g 4} GHz (${cpu cpu4}%)
+${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu4 10,145 999999 FF0000}${color}
+#
+${goto 32}${color1}System Load:${alignr}${color2}${cpu cpu0}%${color} (${loadavg 1}|${loadavg 2}|${loadavg 3})
+${template1 Processes: ${processes}}
+${template1 Running: ${running_processes}}
+${goto 32}${color white}NAME${goto 155}CPU${goto 210}MEM${color}
+${voffset -6}${goto 32}$hr
+${template7 FF0000 1}
+${template7 FF4900 2}
+${template7 FF9000 3}
+${template7 AAFF00 4}
+${template7 00FF00 5}
+###############
+## - NVIDIA - #
+###############
+#${voffset 3}${color0}${font Poky:size=18}N${font}${voffset -4}${template5 NVIDIA}
+#${color}${goto 32}GPU Temp:${alignr}${font Noto Sans:style=Bold:size=10}${execi 300 sensors -A nouveau-pci-300 | grep 'temp1' | cut -c15-17 ;}${color}°C${color}${font}
+##
+################
+# - RAM/Swap - #
+################
+${voffset 2}${font Poky:size=18}M${font}${voffset -8}${template5 MEMORY\ AND\ SWAP}
+${template2 RAM: $mem $memmax $memperc}
+#${if_match $memperc <85}${goto 32}${membar 6,155}${endif}${if_match $memperc >=85}${goto 32}${color red}${membar 6,155}${color}${endif}
+${voffset 10}${template2 SWAP: $swap $swapmax $swapperc}
+#${goto 32}${swapbar 6,155}
+#
+#################
+# - Disk & FS - #
+#################
+${voffset 2}${font Poky:size=18}y${font}${voffset -8}${template5 DISKS\ AND\ FILESYSTEMS}
+${template6 -\ Seagate\ HDD sda}
+${template6 -\ Trascend\ SSD sdb}
+${goto 32}$hr
+${template3 /}
+${template3 /home}
+#
+################
+# - Network - #
+###############
+${voffset 2}${color0}${font Poky:size=16}w${font}${voffset -8}${template5 NETWORK}
+${if_gw}${template1 Network: Online}
+  ​# Public IP
+  ${goto 32}${color1}Public IP: ${alignr}${color2}${execi 600 wget -q -O - checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'}
+  ${template1 Gateway: $gw_ip\ ($gw_iface)}
+  ${template1 Nameserver: $nameserver}
+  ${if_up eth0}${template1 Interface: eth0}
+    ${goto 32}${color1}IP-Address: ${alignr}${color2}${addr eth0}
+    ${goto 32}${color1}Down:${offset 5}${color2}${downspeedf eth0}${offset 1}KiB${goto 145}${color1}Up:${offset 5}${color2}${upspeedf eth0}${offset 1}KiB
+    ${goto 32}${downspeedgraph eth0 20,100 999999 0050BF -t}${goto 145}${upspeedgraph eth0 20,100 999999 0050BF -t}\
+  ${endif}\
+#
+  ${if_up wlan0}${template1 Interface: wlan0}
+    ${goto 32}${color1}IP-Address: ${alignr}${color2}${addr wlan0}
+    ${goto 32}${color1}Down:${offset 5}${color2}${downspeedf wlan0}${offset 1}KiB${goto 145}${color1}Up:${offset 5}${color2}${upspeedf wlan0}${offset 1}KiB
+    ${goto 32}${downspeedgraph wlan0 20,100 999999 0050BF -t}${goto 145}${upspeedgraph wlan0 20,100 999999 0050BF -t}\
+  ${endif}\
+#
+${endif}
+
+# ^^ 2 line feeds above needed for spacing
