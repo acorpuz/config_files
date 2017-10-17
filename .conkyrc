@@ -1,0 +1,174 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2012 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+    alignment = 'middle_right',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 6,
+	total_run_times = 0,
+	--default_color = 'white',
+    --default_outline_color = 'white',
+    --default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    xftalpha = 0.8,
+    font = 'Liberation Sans:style=Bold:size=8',
+    gap_x = 10,
+    gap_y = 40,
+    xinerama_head = 2,
+    minimum_height = 240,
+	minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    double_buffer = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'left',
+    show_graph_scale = false,
+    show_graph_range = false,
+    
+    lua_load = '~/.conky/bargraph_small.lua',
+	lua_draw_hook_post = 'main_bars',
+    --# Colors (1 = Text; 2 = Data; 3 = heading)
+	color1 = 'AAAAAA',
+	color2 = 'FFFFFF',
+	color3 = '999999',
+	color4 = '1793D0',
+	color5 = '0050BF',
+    ----##############################
+	----# - Templates declarations - #
+	----##############################
+	template1 = [[${goto 32}${color1}\1 ${alignr}${color2}\2${color}]],
+	template2 = [[${goto 32}${color1}\1 ${alignr}${color2}\2/\3 (\4%)]],
+	--template2 = [[${goto 32}${color1}\1 ${goto 70}${color2}\2/\3 (\4%)]],
+	template3 = [[${goto 32}${color1}\1 ${alignr}${color2}${fs_used \1}/${fs_size \1} (${fs_used_perc \1}%)${color}${voffset 12}]],
+	template4 = [[${color1}\1: ${color2}$alignr${fs_free \1} ${fs_bar 10,120 \1}]],
+	template5 = [[${goto 36}${font Liberation Sans:style=Bold:size=10}${color4}\1 ${font}$stippled_hr]],
+	template6 = [[${goto 30}${color white}\1 ${goto 120}${color1}In/Out: ${color2}${diskio_write \2}/${diskio_read \2}${color}${voffset 15}${goto 40}${hddtemp /dev/\2} °C${goto 75}${diskiograph \2 10,170 9951FF 1793D0}]],
+	template7 = [[${goto 32}${font Liberation Mono:size=8}${color \1}${top name \2}${goto 140}${top cpu \2}${goto 200}${top mem \2}${font}]]
+}
+
+conky.text = [[
+${font Liberation Sans:style=Bold:size=12}${nodename} ${hr 2}${font}
+${color4}${alignc}${font Liberation Sans:style=Bold:size=20}${time %H:%M}${font}
+${alignc}${font Liberation Sans:size=10}${time %A %d %B %Y}${font}
+${voffset 6}${color red}${font OpenLogos:size=30}J${font}${color}${goto 32}${voffset -16}${font Liberation Sans:style=Bold:size=10}${exec lsb_release -d | cut -c14-}${font}${color}
+${voffset 6}${template1 kernel: ${kernel}}
+${template1 uptime: ${uptime}}
+# ##########
+# - CPU - #
+# ##########
+${voffset 4}${color0}${font ConkyColorsLogos:size=24}i${font}${color}${voffset -4}${goto 36}${font Liberation Sans:style=Bold:size=10}${color4} ${exec cat /proc/cpuinfo | grep 'model name' | cut -c14-40 | head -n1}${font}$stippled_hr
+#${voffset 4}${color1} ${goto 32}Core1@${freq_g 1} GHz (${cpu cpu1}%) ${alignr}${cpubar cpu1 5,60}
+${voffset 4}${color1} ${goto 32}Core1@${freq_g 1} GHz (${cpu cpu1}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+${voffset 4}${color1} ${goto 32}Core2@${freq_g 2} GHz${color1} (${cpu cpu2}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c16-23 ;}°C${font}  ${alignr}${cpugraph cpu2 10,120 999999 FF0000}${color}
+${voffset 4}${color1} ${goto 32}Core3@${freq_g 1} GHz (${cpu cpu3}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+${voffset 4}${color1} ${goto 32}Core4@${freq_g 1} GHz (${cpu cpu4}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+${voffset 4}${color1} ${goto 32}Core5@${freq_g 1} GHz (${cpu cpu1}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 2' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+${voffset 4}${color1} ${goto 32}Core6@${freq_g 2} GHz${color1} (${cpu cpu2}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 2' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu2 10,120 999999 FF0000}${color}
+${voffset 4}${color1} ${goto 32}Core7@${freq_g 1} GHz (${cpu cpu3}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 3' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+${voffset 4}${color1} ${goto 32}Core8@${freq_g 1} GHz (${cpu cpu8}%)
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 3' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+#
+${goto 32}${color1}System Load:${font Liberation Sans:style=Bold:size=8}${alignr}${color2}${cpu cpu0}%${color} (${loadavg 1} | ${loadavg 2} | ${loadavg 3})${font}
+${template1 Processes: ${processes}}
+${template1 Running: ${running_processes}}
+${goto 32}${font Liberation Sans:style=Bold:size=8}${color white}NAME${goto 155}CPU${goto 210}MEM${color}${font}
+${voffset -6}${goto 32}$hr
+${template7 FF0000 1}
+${template7 FF4900 2}
+${template7 FF9000 3}
+${template7 AAFF00 4}
+${template7 00FF00 5}
+##############
+# - NVIDIA - #
+##############
+${voffset 3}${color0}${font Poky:size=20}N${font}${voffset -4}${template5 NVIDIA}
+#${color1}${goto 32}Card model:${alignr}${color}${font Droid Sans:style=Bold:size=8}${exec nvidia-smi -q | grep  'Product Name' | cut -c39-53}${font}
+${color1}${goto 32}Card model:${alignr}${color}${font Liberation Sans:style=Bold:size=8}${exec lspci | grep 3D | cut -c 51-65}${font}
+${color1}${goto 32}Driver version:${alignr}${color}${font Liberation Sans:style=Bold:size=8}${execi 300 optirun nvidia-settings -c :8 -t -q [gpu:0]/NvidiaDriverVersion}${font}
+${color1}${goto 32}GPU Temp:${alignr}${color}${font Liberation Sans:style=Bold:size=8}${execi 300 optirun nvidia-settings -c :8 -t -q [gpu:0]/GPUCoreTemp}°C${color}${font}
+#${color1}${goto 32}Video RAM:${alignr}${font Droid Sans:style=Bold:size=8}{print $float(${execi 300 optirun nvidia-settings -c :8 -t -q VideoRam}/1024)}${color}MB${color}${font}
+#
+################
+# - RAM/Swap - #
+################
+${voffset 3}${font Poky:size=18}M${font}${voffset -4}${template5 MEMORY\ AND\ SWAP}
+${template2 RAM: $mem $memmax $memperc}
+#${if_match $memperc <85}${goto 32}${membar 6,155}${endif}${if_match $memperc >=85}${goto 32}${color red}${membar 6,155}${color}${endif}
+${voffset 14}${template2 SWAP: $swap $swapmax $swapperc}
+###############
+# - Network - #
+###############
+${voffset 12}${color0}${font Poky:size=18}w${font}${voffset -4}${template5 NETWORK}
+${if_gw}${template1 Network: Online}
+${template1 Gateway: $gw_ip\ ($gw_iface)}
+${template1 Nameserver: $nameserver}
+#
+${if_up eth0}${template1 Interface: eth0}
+${goto 32}${color1}IP-Address: ${alignr}${color2}${addr eth0}
+# Public IP
+#${goto 32}${color1}Public IP: ${alignr}${color2}${execi 600 wget -q -O - checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'}
+${goto 32}${color1}Down:${offset 5}${color2}${downspeedf eth0}${offset 1}KiB${goto 145}${color1}Up:${offset 5}${color2}${upspeedf eth0}${offset 1}KiB
+${goto 32}${downspeedgraph eth0 40,100 999999 0050BF -t}${alignr}${upspeedgraph eth0 40,100 999999 0050BF -t}\
+${endif}\
+${endif}
+#################
+# - Disk & FS - #
+#################
+${voffset 2}${font Poky:size=18}y${font}${voffset -4}${template5 DISKS\ AND\ FILESYSTEMS}
+${template6 -\ WD\ HDD sda}
+${goto 32}$hr
+${template3 /}
+${template3 /home}
+${template3 /var}
+${template3 /tmp}
+
+
+
+
+]]

@@ -4,6 +4,7 @@
 # Don't ignore directories, so we can recurse into them
 !*/
 ## but ignore these...
+Desktop/
 Documents/
 IfsWorkshop_Containers/
 Shared_Mari/
