@@ -20,3 +20,5 @@ Shared_Mari/
 # Shell configs
 !.zshrc
 !.bashrc
+# i3 config dir
+!.config/i3/*
