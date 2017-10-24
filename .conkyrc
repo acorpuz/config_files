@@ -74,8 +74,8 @@ ${font Noto Sans:style=Bold:size=14}${nodename} ${hr 2}${font}
 ${color4}${alignc}${font Noto Sans:style=Bold:size=18}${time %H:%M}${font}
 ${alignc}${font Noto Sans:size=10}${time %A %d %B %Y}${font}
 #${voffset 5}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -26}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-41 | head -n1}${font}${color}
-${voffset 5}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -20}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-41 | head -n1}${font}${color}
-${voffset 5}${template1 kernel: ${kernel}}
+${voffset 4}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -20}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-41 | head -n1}${font}${color}
+${voffset 4}${template1 kernel: ${kernel}}
 ${template1 uptime: ${uptime}}
 ${template8 Battery\ (internal): BAT0}
 #${goto 32}${battery_bar 5,120 BAT0}
