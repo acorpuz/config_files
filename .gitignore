@@ -23,3 +23,5 @@ Shared_Mari/
 !.bashrc
 # i3 config dir
 !.config/i3/*
+# Xresources for URxvt
+!.Xresources
