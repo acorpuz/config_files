@@ -1,0 +1,49 @@
+URxvt*geometry: 140x50
+URxvt*background:Black
+URxvt*foreground:White
+URxvt.depth: 32
+URxvt*cursorBlink: on
+URxvt*borderLess: false
+URxvt*cursorUnderline: true
+URxvt.visualBell: true
+URxvt*scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollTtyKeypress: true
+URxvt*secondaryScroll: true
+URxvt*saveLines: 8000
+
+
+! COLOR PALETTE
+! black
+URxvt.color0  : #2E2E34343636
+URxvt.color8  : #555557575353
+! red
+URxvt.color1  : #CCCC00000000
+URxvt.color9  : #EFEF29292929
+! green
+URxvt.color2  : #4E4E9A9A0606
+URxvt.color10 : #8A8AE2E23434
+! yellow
+URxvt.color3  : #C4C4A0A00000
+URxvt.color11 : #FCFCE9E94F4F
+! blue
+URxvt.color4  : #34346565A4A4
+URxvt.color12 : #72729F9FCFCF
+! magenta
+URxvt.color5  : #757550507B7B
+URxvt.color13 : #ADAD7F7FA8A8
+! cyan
+URxvt.color6  : #060698209A9A
+URxvt.color14 : #3434E2E2E2E2
+! white
+URxvt.color7  : #D3D3D7D7CFCF
+URxvt.color15 : #EEEEEEEEECEC
+
+! FONTS
+! $ fc-list lists available fonts
+!Rxvt*font: xft: Liberation Mono:size=14,xft: DejaVu Sans Mono,
+URxvt*font: xft:M+ 1mn:style=regular:fontsize=11, xft: OpenSymbol:fontsize=6
+URxvt*boldFont: xft:M+ 1mn:style=Bold:fontsize=11
+!URxvt.font: xft:Noto Mono:fontsize=9, xft: OpenSymbol:fontsize=5,xft: Monospace
+!URxvt.boldFont: xft:Noto Mono Bold:fontsize=9
+URxvt.letterSpace: 1
