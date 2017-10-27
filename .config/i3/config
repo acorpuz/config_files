@@ -214,4 +214,4 @@ exec_always xrandr
 #exec mate-volume-control-applet
 exec conky -d
 exec wicd
-exec --no-startup-id i3-msg  "workspace $workspace3; exec /usr/local/telegram/Telegram -- %u"
+exec --no-startup-id i3-msg  "workspace $workspace3; exec /usr/local/bin/telegram/Telegram -- %u"
