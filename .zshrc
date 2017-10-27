@@ -10,7 +10,8 @@
 #ZSH_THEME="robbyrussell"
 
 #ZSH_THEME="gnzh"
-ZSH_THEME="tjkirch"
+#ZSH_THEME="tjkirch"
+ZSH_THEME="frisk"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
