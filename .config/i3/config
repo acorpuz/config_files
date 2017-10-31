@@ -99,10 +99,10 @@ bindsym $mod+Shift+x exec $HOME/.config/i3/lock.sh
 
 set $workspace1 "1: Chromium "
 set $workspace2 "2: Terminal "
-set $workspace3 "3:"
-set $workspace4 "4:"
-set $workspace5 "5:Editor  "
-set $workspace6 "6:"
+set $workspace3 "3: Various "
+set $workspace4 "4: Various Junk  "
+set $workspace5 "5: Editor  "
+set $workspace6 "6: Misc Workspace "
 set $workspace7 "7: IM "
 set $workspace8 "8: Firefox "
 set $workspace9 "9: Libre Office"
@@ -140,7 +140,7 @@ assign [class="Geany"] $workspace5
 assign [class="TelegramDesktop"] $workspace7
 assign [class="Firefox-esr"] $workspace8
 assign [class="libreoffice"] $workspace9
-assign [class="Caja"] $workspace10
+assign [class="Thunar"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -197,21 +197,38 @@ bar {
 	}
 }
 
-# Set display mode
+## Set display mode
 #exec_always xrandr --output HDMI-1 --mode 1600x1200 --pos 1600x0 --rotate left --output eDP-1 --primary --mode 1600x900 --pos 0x700 --rotate normal
 
 #exec_always feh --bg-center /home/bioangel/Pictures/bg-images/elegance-blue-wallpaper.png /home/bioangel/Pictures/bg-images/jOwankA.jpg
 
 exec_always compton -f
 
-# Start with following open
+### Start with following open
 exec chromium
 exec firefox-esr
 exec x-terminal-emulator
+exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/local/bin/telegram/Telegram -- %u"
+exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/bin/skypeforlinux -- %u"
+
+# Good Riddance - changed to CTRL key
+exec setxkbmap -option ctrl:nocaps
+# Activate compose key for current session
+exec setxkbmap -option compose:lwin
+
 exec glipper
 exec gtk-redshift
-exec_always xrandr 
-#exec mate-volume-control-applet
 exec conky -d
-exec wicd
-exec --no-startup-id i3-msg  "workspace $workspace3; exec /usr/local/bin/telegram/Telegram -- %u"
+exec wicd-gtk -t
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Screen configuration
+bindsym XF86Display exec arandr  

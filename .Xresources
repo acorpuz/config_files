@@ -52,8 +52,8 @@ URxvt*background: Black
 URxvt*foreground: White
 URxvt*colorUL: yellow
 URxvt*underlineColor: yellow
-URxvt.font:	xft:M+ 1mn:regular:size=12
-URxvt.boldFont:	xft:M+ 1mn:bold:size=12
+URxvt.font:	xft:M+ 1mn:regular:size=11
+URxvt.boldFont:	xft:M+ 1mn:bold:size=11
 !URxvt*italicFont:  xft:Bitstream Vera Sans Mono:italic:autohint=true:size=12
 !URxvt*boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:size=12
 URxvt*letterSpace:  1
