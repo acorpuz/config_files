@@ -212,7 +212,7 @@ exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/local/bin/telegra
 exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/bin/skypeforlinux -- %u"
 
 # Good Riddance - changed to CTRL key
-exec setxkbmap -option ctrl:nocaps
+exec setxkbmap -option caps:ctrl
 # Activate compose key for current session
 exec setxkbmap -option compose:lwin
 
@@ -227,8 +227,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+#
 # Screen configuration
 bindsym XF86Display exec arandr  
