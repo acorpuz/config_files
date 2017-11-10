@@ -1,26 +1,26 @@
 xscreensaver.splash:	false
 xscreensaver.Dialog.headingFont:	-*-helvetica-bold-r-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:	-*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:	-*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:	-*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:	-*-helvetica-bold-r-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:	-*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:	-*-terminus-*-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.foreground:	#ffffff
-xscreensaver.Dialog.background:	#000000
-xscreensaver.Dialog.topShadowColor:	#000000
+xscreensaver.Dialog.bodyFont:	    -*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:  	-*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:  	-*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont: 	-*-helvetica-bold-r-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:   	-*-helvetica-medium-r-*-*-17-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont: 	-*-terminus-*-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.foreground: 	    #ffffff
+xscreensaver.Dialog.background: 	    #000000
+xscreensaver.Dialog.topShadowColor: 	#000000
 xscreensaver.Dialog.bottomShadowColor:	#000000
 xscreensaver.Dialog.Button.foreground:	#666666
 xscreensaver.Dialog.Button.background:	#ffffff
 xscreensaver.Dialog.text.foreground:	#666666
 xscreensaver.Dialog.text.background:	#ffffff
 xscreensaver.Dialog.internalBorderWidth:	60
-xscreensaver.Dialog.borderWidth:	0
-xscreensaver.Dialog.shadowThickness:	2
+xscreensaver.Dialog.borderWidth:        	0
+xscreensaver.Dialog.shadowThickness:	    2
 xscreensaver.passwd.thermometer.foreground:	#ff0000
 xscreensaver.passwd.thermometer.background:	#000000
-xscreensaver.passwd.thermometer.width:	8
-xscreensaver.dateFormat:	%H:%M %a %b %d, %Y
+xscreensaver.passwd.thermometer.width:	    8
+xscreensaver.dateFormat:                    %H:%M %a %b %d, %Y
 
 Xft.dpi: 96
 Xft.autohint: false
@@ -28,7 +28,8 @@ Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: true
 Xft.antialias: true
-Xft.rgba: rgb
+Xft.rgba: none
+!Xft.rgba: rgb
 
 URxvt.termName:	rxvt-unicode
 URxvt*geometry: 100x30
@@ -51,13 +52,13 @@ URxvt*visualBell: true
 URxvt*background: Black
 URxvt*foreground: White
 URxvt*colorUL: yellow
-URxvt*underlineColor: yellow
-URxvt.font:	xft:M+ 1mn:regular:size=11
-URxvt.boldFont:	xft:M+ 1mn:bold:size=11
-!URxvt*italicFont:  xft:Bitstream Vera Sans Mono:italic:autohint=true:size=12
-!URxvt*boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:size=12
-URxvt*letterSpace:  1
-URxvt.saveLines:	1000
+URxvt*underlineColor:   yellow
+URxvt.font:             xft:M+ 1mn:regular:size=12,xft:Noto Sans:regular:size=10
+URxvt.boldFont:         xft:M+ 1mn:bold:size=12,xft:Noto Sans:bold:size=10
+URxvt*italicFont:       xft:Noto Sans:italic:size=10
+URxvt*boldItalicFont:   xft:Bitstream Vera Sans Mono:bold:italic:size=10
+URxvt*letterSpace:      1
+URxvt.saveLines:	    1000
 
 !--- Color scheme: https://github.com/baskerville/xresources-color-schemes/blob/master/raven_m9-dark ---
 #define t_bg_floor     #010000

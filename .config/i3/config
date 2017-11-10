@@ -216,7 +216,7 @@ exec setxkbmap -option caps:ctrl
 # Activate compose key for current session
 exec setxkbmap -option compose:lwin
 
-exec glipper
+exec xrandr
 exec gtk-redshift
 exec conky -d
 exec wicd-gtk -t
