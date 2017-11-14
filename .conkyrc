@@ -14,7 +14,7 @@ no_buffers yes		# Subtract (file system) buffers from used memory?
 # - Text settings - #
 #####################
 use_xft yes			# Use Xft (anti-aliased font and stuff)
-xftfont Noto Sans:style=Bold:size=8
+xftfont Noto Sans:style=Bold:size=7
 xftalpha 0.8
 override_utf8_locale yes
 text_buffer_size 640
@@ -30,9 +30,9 @@ own_window_type override
 own_window_class = 'Conky'
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 alignment middle_right
-gap_x 10
-gap_y 10
-minimum_size 240 0
+gap_x 5
+gap_y 0
+minimum_size 40 0
 maximum_width 240
 
 #########################
@@ -63,11 +63,11 @@ lua_draw_hook_post main_bars
 ##############################
 template1 ${goto 32}${color1}\1 ${alignr}${color2}\2${color}
 template2 ${goto 32}${color1}\1 ${goto 70}${color2}\2/\3 (\4%)
-template3 ${goto 32}${color1}\1: ${alignr}${color2}${fs_used \1}/${fs_size \1} (${fs_used_perc \1}%)${color}${voffset 12}
+template3 ${goto 32}${color1}\1: ${alignr}${color2}${fs_used \1}/${fs_size \1} (${fs_used_perc \1}%)${color}${voffset 10}
 #template3 ${goto 32}${color1}\1: ${alignr}${color2}${fs_used \1}/${fs_size \1} (${fs_used_perc \1}%)${color}${voffset 12}${goto 32}${fs_bar \1}
 #template4 ${color1}\1: ${color2}$alignr${fs_free \1} ${fs_bar 5,120 \1}
 template5 ${goto 36}${font Noto Sans:style=Bold:size=8}${color4}\1 ${font}$stippled_hr
-template6 ${goto 30}${color white}\1 ${goto 113}${color1}R/W: ${color2}${diskio_read \2}/${diskio_write \2}${color}${voffset 15}${goto 40}${hddtemp /dev/\2} °C${goto 75}${diskiograph \2 10,170 9951FF 1793D0}
+template6 ${goto 30}${color white}\1 ${goto 113}${color1}R/W: ${color2}${diskio_read \2}/${diskio_write \2}${color}${voffset 12}${goto 40}${hddtemp /dev/\2} °C${goto 75}${diskiograph \2 10,170 9951FF 1793D0}
 template7 ${goto 32}${font Noto Sans Mono:size=8}${color \1}${top name \2}${goto 140}${top cpu \2}${goto 200}${top mem \2}${font}${color}
 template8 ${goto 32}${color1}\1 ${alignr}${color2}${battery_percent \2}% (${battery_time \2})${color}
 TEXT
@@ -76,7 +76,7 @@ ${font Noto Sans:style=Bold:size=14}${nodename} ${hr 2}${font}
 ${color4}${alignc}${font Noto Sans:style=Bold:size=18}${time %H:%M}${font}
 ${alignc}${font Noto Sans:size=10}${time %A %d %B %Y}${font}
 #${voffset 5}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -26}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-41 | head -n1}${font}${color}
-${voffset 4}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -20}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-41 | head -n1}${font}${color}
+${voffset 4}${color red}${font OpenLogos:size=32}J${font}${color}${goto 32}${voffset -14}${font Noto Sans:style=Bold:size=10}${exec cat /etc/os-release | grep 'PRETTY_NAME' | cut -c14-40 | head -n1}${font}${color}
 ${voffset 4}${template1 kernel: ${kernel}}
 ${template1 uptime: ${uptime}}
 ${template8 Battery\ (internal): BAT0}
@@ -136,7 +136,7 @@ ${template3 /home}
 ###############
 ${voffset 2}${color0}${font Poky:size=16}w${font}${voffset -8}${template5 NETWORK}
 ${if_gw}${template1 Network: Online}
-  ​# Public IP
+  # Public IP
   ${goto 32}${color1}Public IP: ${alignr}${color2}${execi 600 wget -q -O - checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'}
   ${template1 Gateway: $gw_ip\ ($gw_iface)}
   ${template1 Nameserver: $nameserver}
