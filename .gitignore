@@ -20,3 +20,9 @@ Shared_Mari/
 # Shell configs
 !.zshrc
 !.bashrc
+
+# Ignore temp file, undo files, etc...
+.~lock.*
+*.sh~
+*.un~
+*.autosave
