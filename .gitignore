@@ -25,3 +25,9 @@ sublime-text-3/
 !.config/i3/
 # Xresources with URxvt settings
 !.Xresources
+
+# Ignore temp file, undo files, etc...
+.~lock.*
+*.sh~
+*.un~
+*.autosave
