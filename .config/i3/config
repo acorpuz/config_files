@@ -212,4 +212,5 @@ exec gtk-redshift
 exec mate-volume-control-applet
 exec conky -d
 exec --no-startup-id i3-msg  "workspace $workspace3; exec /home/bioangel/Documents/Local/Telegram/Telegram -- %u"
+exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/bin/skypeforlinux -- %u"
 
