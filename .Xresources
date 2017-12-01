@@ -43,7 +43,7 @@ URxvt*scrollstyle: plain
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*scrollBar_floating: false
-URxvt*fading: 30
+URxvt*fading: 40
 !URxvt*utmpInhibit: false
 !URxvt*urgentOnBell: false
 URxvt*visualBell: true
@@ -53,9 +53,9 @@ URxvt*background: Black
 URxvt*foreground: White
 URxvt*colorUL: yellow
 URxvt*underlineColor:   yellow
-URxvt.font:             xft:M+ 1mn:regular:size=12,xft:Noto Sans:regular:size=10
+URxvt.font:             xft:M+ 1mn:regular:size=12,xft:Noto Mono:regular:size=10
 URxvt.boldFont:         xft:M+ 1mn:bold:size=12,xft:Noto Sans:bold:size=10
-URxvt*italicFont:       xft:Noto Sans:italic:size=10
+URxvt*italicFont:       xft:M+ 1mn:medium:size=12
 URxvt*boldItalicFont:   xft:Bitstream Vera Sans Mono:bold:italic:size=10
 URxvt*letterSpace:      1
 URxvt.saveLines:	    1000

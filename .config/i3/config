@@ -136,11 +136,15 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # map apps to worksaces
 assign [class="Chromium"] $workspace1
 assign [class="URxvt"] $workspace2
+assign [class="Sublime_text"] $workspace5
 assign [class="Geany"] $workspace5
+assign [class="Skype"] $workspace7
 assign [class="TelegramDesktop"] $workspace7
 assign [class="Firefox-esr"] $workspace8
+assign [class="Firefox"] $workspace8
 assign [class="libreoffice"] $workspace9
 assign [class="Thunar"] $workspace10
+assign [class="Nautilus"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -180,7 +184,7 @@ bindsym $mod+r mode "resize"
 bar {
         #status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango: Carlito, FontAwesome 11
+    	font pango: Carlito, FontAwesome 11
         position bottom
         #strip_workspace_numbers yes
         #bindsym button4 nop
@@ -197,8 +201,6 @@ bar {
 	}
 }
 
-## Set display mode
-#exec_always xrandr --output HDMI-1 --mode 1600x1200 --pos 1600x0 --rotate left --output eDP-1 --primary --mode 1600x900 --pos 0x700 --rotate normal
 
 #exec_always feh --bg-center /home/bioangel/Pictures/bg-images/elegance-blue-wallpaper.png /home/bioangel/Pictures/bg-images/jOwankA.jpg
 
@@ -206,17 +208,18 @@ exec_always compton -f
 
 ### Start with following open
 exec chromium
-exec firefox-esr
+exec firefox
 exec x-terminal-emulator
 exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/local/bin/telegram/Telegram -- %u"
 exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/bin/skypeforlinux -- %u"
 
 # Good Riddance - changed to CTRL key
-exec setxkbmap -option caps:ctrl
+# FUCK!!! doesn't work!!!
+#exec xmodmap -e 'add Control = Control_L'
 # Activate compose key for current session
 exec setxkbmap -option compose:lwin
 
-exec xrandr
+#exec xrandr
 exec gtk-redshift
 exec conky -d
 exec wicd-gtk -t
