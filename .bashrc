@@ -113,5 +113,3 @@ if ! shopt -oq posix; then
 fi
 [[ -f "/home/dka/.config/autopackage/paths-bash" ]] && . "/home/dka/.config/autopackage/paths-bash"
 
-## For moddicom program
-#PATH=$PATH:/home/dka/Documents/lavoro/Infosons/moddicom/dcmtk-3.6.0-linux-i686-static/bin/

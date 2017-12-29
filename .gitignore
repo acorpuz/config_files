@@ -8,6 +8,7 @@ Documents/
 IfsWorkshop_Containers/
 Shared_Mari/
 sublime-text-3/
+.berkshelf/
 #
 ## Don't ignore .gitignore and README.md, add files using filenames
 # i.e. !.conkyrc, etc
