@@ -138,9 +138,10 @@ assign [class="Chromium"] $workspace1
 assign [class="URxvt"] $workspace2
 assign [class="Geany"] $workspace5
 assign [class="TelegramDesktop"] $workspace7
+assign [class="Skype"] $workspace7
 assign [class="Firefox-esr"] $workspace8
 assign [class="libreoffice"] $workspace9
-assign [class="Caja"] $workspace10
+assign [class="Thunar"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -198,9 +199,9 @@ bar {
 }
 
 # Set display mode
-exec_always xrandr --output HDMI-1 --mode 1600x1200 --pos 1600x0 --rotate left --output eDP-1 --primary --mode 1600x900 --pos 0x700 --rotate normal
+exec_always xrandr --output VGA-0 --mode 1600x1200 --pos 1366x0 --rotate left --output LVDS --primary --mode 1366x768 --pos 0x832 --rotate normal --output HDMI-0 --off
 
-exec_always feh --bg-center /home/bioangel/Pictures/bg-images/elegance-blue-wallpaper.png /home/bioangel/Pictures/bg-images/jOwankA.jpg
+exec_always feh --bg-center /home/bioangel/Pictures/bg-images/elegance-blue-wallpaper.jpg /home/bioangel/Pictures/bg-images/jOwankA.jpg
 
 exec_always compton -f
 
@@ -209,7 +210,7 @@ exec chromium
 exec x-terminal-emulator
 exec glipper
 exec gtk-redshift
-exec mate-volume-control-applet
+exec volumeicon
 exec conky -d
 exec --no-startup-id i3-msg  "workspace $workspace3; exec /home/bioangel/Documents/Local/Telegram/Telegram -- %u"
 exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/bin/skypeforlinux -- %u"
