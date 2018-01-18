@@ -4,6 +4,7 @@
 # Don't ignore directories, so we can recurse into them
 !*/
 ## but ignore these...
+Backups/
 Desktop/
 Documents/
 IfsWorkshop_Containers/

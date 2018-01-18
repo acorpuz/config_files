@@ -95,7 +95,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # screen lock
-bindsym $mod+Shift+x exec $HOME/.config/i3/lock.sh
+bindsym $mod+Shift+x exec "$HOME/.config/i3/lock.sh"
+exec xautolock -time 1 -locker "$HOME/.config/i3/lock.sh" &
 
 set $workspace1 "1: Chromium "
 set $workspace2 "2: Terminal "
@@ -208,7 +209,7 @@ exec_always compton -f
 # Start with following open
 exec chromium
 exec x-terminal-emulator
-exec glipper
+exec clipit
 exec gtk-redshift
 exec volumeicon
 exec conky -d
