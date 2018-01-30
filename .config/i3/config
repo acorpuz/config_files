@@ -96,7 +96,7 @@ bindsym $mod+a focus parent
 
 # screen lock
 bindsym $mod+Shift+x exec "$HOME/.config/i3/lock.sh"
-exec xautolock -time 1 -locker "$HOME/.config/i3/lock.sh" &
+exec xautolock -time 5 -locker "$HOME/.config/i3/lock.sh" &
 
 set $workspace1 "1: Chromium "
 set $workspace2 "2: Terminal "
