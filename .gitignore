@@ -4,6 +4,8 @@
 # Don't ignore directories, so we can recurse into them
 !*/
 ## but ignore these...
+# some are tracked separetly in othe repositories
+Ansible/
 Backups/
 Desktop/
 Documents/

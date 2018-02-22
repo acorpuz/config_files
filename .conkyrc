@@ -98,21 +98,21 @@ ${template1 uptime: ${uptime}}
 ${voffset 4}${color0}${font ConkyColorsLogos:size=24}i${font}${color}${voffset -4}${goto 36}${font Liberation Sans:style=Bold:size=10}${color4} ${exec cat /proc/cpuinfo | grep 'model name' | cut -c14-40 | head -n1}${font}$stippled_hr
 #${voffset 4}${color1} ${goto 32}Core1@${freq_g 1} GHz (${cpu cpu1}%) ${alignr}${cpubar cpu1 5,60}
 ${voffset 4}${color1} ${goto 32}Core1@${freq_g 1} GHz (${cpu cpu1}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
-${voffset 4}${color1} ${goto 32}Core2@${freq_g 2} GHz${color1} (${cpu cpu2}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c16-23 ;}°C${font}  ${alignr}${cpugraph cpu2 10,120 999999 FF0000}${color}
-${voffset 4}${color1} ${goto 32}Core3@${freq_g 1} GHz (${cpu cpu3}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
-${voffset 4}${color1} ${goto 32}Core4@${freq_g 1} GHz (${cpu cpu4}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
-${voffset 4}${color1} ${goto 32}Core5@${freq_g 1} GHz (${cpu cpu1}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 2' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
-${voffset 4}${color1} ${goto 32}Core6@${freq_g 2} GHz${color1} (${cpu cpu2}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 2' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu2 10,120 999999 FF0000}${color}
-${voffset 4}${color1} ${goto 32}Core7@${freq_g 1} GHz (${cpu cpu3}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 3' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
-${voffset 4}${color1} ${goto 32}Core8@${freq_g 1} GHz (${cpu cpu8}%)
-${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 3' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A k10temp-pci-00c3 | grep 'Core 0' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+#${voffset 4}${color1} ${goto 32}Core2@${freq_g 2} GHz${color1} (${cpu cpu2}%)
+#${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c16-23 ;}°C${font}  ${alignr}${cpugraph cpu2 10,120 999999 FF0000}${color}
+#${voffset 4}${color1} ${goto 32}Core3@${freq_g 1} GHz (${cpu cpu3}%)
+#${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+#${voffset 4}${color1} ${goto 32}Core4@${freq_g 1} GHz (${cpu cpu4}%)
+#${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+#${voffset 4}${color1} ${goto 32}Core5@${freq_g 1} GHz (${cpu cpu1}%)
+#${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 2' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+#${voffset 4}${color1} ${goto 32}Core6@${freq_g 2} GHz${color1} (${cpu cpu2}%)
+#${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 2' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu2 10,120 999999 FF0000}${color}
+#${voffset 4}${color1} ${goto 32}Core7@${freq_g 1} GHz (${cpu cpu3}%)
+#${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 3' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
+#${voffset 4}${color1} ${goto 32}Core8@${freq_g 1} GHz (${cpu cpu8}%)
+#${alignr}${font Liberation Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 3' | cut -c16-23 ;}${font}  ${alignr}${cpugraph cpu1 10,120 999999 FF0000}
 #
 ${goto 32}${color1}System Load:${font Liberation Sans:style=Bold:size=8}${alignr}${color2}${cpu cpu0}%${color} (${loadavg 1} | ${loadavg 2} | ${loadavg 3})${font}
 ${template1 Processes: ${processes}}
