@@ -111,3 +111,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# Shut-up bell
+if [ -n "$DISPLAY" ]; then
+  xset b off
+fi
