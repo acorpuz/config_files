@@ -9,6 +9,7 @@ IfsWorkshop_Containers/
 Shared_Mari/
 sublime-text-3/
 .berkshelf/
+.local/
 #
 ## Don't ignore .gitignore and README.md, add files using filenames
 # i.e. !.conkyrc, etc
@@ -34,6 +35,8 @@ sublime-text-3/
 *.autosave
 *.swp
 *.swo
+# vim temp
+.vim/
 ### Eclipse specific
 .settings/
 .properties
@@ -45,4 +48,5 @@ build/
 __pycache__/
 *.py[cod]
 *$py.class
-
+# VSCode specific
+.vscode/

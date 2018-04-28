@@ -1,4 +1,3 @@
-
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -9,6 +8,33 @@
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
+
+" Vundle config
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+Plugin 'vim-scripts/python.vim'
+Plugin 'vim-scripts/python_fold'
+Plugin 'indentpython'
+Plugin 'scrooloose/syntastic'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" --- End Vundle config
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -57,6 +83,10 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
   packadd matchit
 endif
+
+" ensure UTF-8 encoding
+set encoding=utf-8
+
 " vim offers toggling paste mode:
 set pastetoggle=<F2>
 
@@ -86,3 +116,22 @@ if exists("+undofile")
   set undodir+=~/.vim/undo//
   set undofile
 endif
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+let g:pymode_python = 'python3'
+
+" pretty python code
+let python_highlight_all=1
+syntax on
