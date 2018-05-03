@@ -42,8 +42,17 @@ URxvt.color15 : #EEEEEEEEECEC
 ! FONTS
 ! $ fc-list lists available fonts
 !Rxvt*font: xft: Liberation Mono:size=14,xft: DejaVu Sans Mono,
-URxvt*font: xft:M+ 1mn:style=regular:fontsize=11,xft:FontAwesome:fontsize=8,xft:OpenSymbol:fontsize=8
-URxvt*boldFont: xft:M+ 1mn:style=Bold:fontsize=11
+URxvt*font: xft:M+ 1mn:style=regular:fontsize=9,xft:FontAwesome:fontsize=9,xft:OpenSymbol:fontsize=8
+URxvt*boldFont:
+!URxvt*boldFont: xft:M+ 1mn:style=Bold:fontsize=10
 !URxvt.font: xft:Noto Mono:fontsize=9, xft: OpenSymbol:fontsize=5,xft: Monospace
 !URxvt.boldFont: xft:Noto Mono Bold:fontsize=9
-URxvt.letterSpace: 1
+URxvt.letterSpace: 2
+
+! XFT high-res
+Xft.dpi         : 210
+Xft.lcdfilter   : lcddefault
+Xft.hintstyle   : hintslight
+Xft.hinting     : true
+Xft.antialias   : true
+Xft.rgba        : rgb
