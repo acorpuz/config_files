@@ -89,3 +89,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export SHELLCHECK_OPTS="-e SC1091"
+
+#if [[ -r ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#    source ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+#fi
+
+# Source patched fonts
+source ~/.fonts/*.sh

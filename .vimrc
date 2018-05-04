@@ -30,6 +30,7 @@ Plugin 'vim-scripts/python.vim'
 Plugin 'vim-scripts/python_fold'
 Plugin 'indentpython'
 Plugin 'scrooloose/syntastic'
+"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -135,3 +136,13 @@ let g:pymode_python = 'python3'
 " pretty python code
 let python_highlight_all=1
 syntax on
+
+
+"set rtp+=~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
+" Always show statusline
+set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+

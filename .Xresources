@@ -57,7 +57,7 @@ URxvt.font:             xft:M+ 1mn:regular:size=12,xft:Noto Mono:regular:size=10
 URxvt.boldFont:         xft:M+ 1mn:bold:size=12,xft:Noto Sans:bold:size=10
 URxvt*italicFont:       xft:M+ 1mn:medium:size=12
 URxvt*boldItalicFont:   xft:Bitstream Vera Sans Mono:bold:italic:size=10
-URxvt*letterSpace:      1
+URxvt*letterSpace:      2
 URxvt.saveLines:	    1000
 
 !--- Color scheme: https://github.com/baskerville/xresources-color-schemes/blob/master/raven_m9-dark ---

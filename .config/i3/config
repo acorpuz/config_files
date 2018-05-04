@@ -139,6 +139,7 @@ assign [class="Chromium"] $workspace1
 assign [class="URxvt"] $workspace2
 assign [class="Sublime_text"] $workspace5
 assign [class="Geany"] $workspace5
+assign [class="Code"] $workspace5
 assign [class="Skype"] $workspace7
 assign [class="TelegramDesktop"] $workspace7
 assign [class="Firefox-esr"] $workspace8
@@ -185,7 +186,7 @@ bindsym $mod+r mode "resize"
 bar {
         #status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    	font pango: Carlito 10, FontAwesome 11
+    	font pango: Carlito 10, FontAwesome 10
         position bottom
         #strip_workspace_numbers yes
         #bindsym button4 nop
