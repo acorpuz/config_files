@@ -51,3 +51,4 @@ __pycache__/
 *$py.class
 # VSCode specific
 .vscode/
+/etc/X11/xorg.conf.d/
