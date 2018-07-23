@@ -125,7 +125,7 @@ ${voffset 10}${template2 SWAP: $swap $swapmax $swapperc}
 # - Disk & FS - #
 #################
 ${voffset 2}${font Poky:size=18}y${font}${voffset -8}${template5 DISKS\ AND\ FILESYSTEMS}
-${template6 -\ Seagate\ HDD sda}
+${template6 -\ Crucial\ SSD sda}
 ${template6 -\ Trascend\ SSD sdb}
 ${goto 32}$hr
 ${template3 /}
