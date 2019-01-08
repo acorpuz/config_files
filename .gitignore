@@ -14,6 +14,7 @@ Shared_Mari/
 sublime-text-3/
 *~
 .local/
+xkblayout-state/
 #
 ## Don't ignore .gitignore and README.md, add files using filenames
 # i.e. !.conkyrc, etc

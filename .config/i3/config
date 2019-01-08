@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Carlito 10
+font pango:Carlito 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -137,12 +137,17 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # map apps to worksaces
 assign [class="Chromium"] $workspace1
 assign [class="URxvt"] $workspace2
+assign [class="Sublime_text"] $workspace5
 assign [class="Geany"] $workspace5
-assign [class="TelegramDesktop"] $workspace7
+assign [class="Code"] $workspace5
 assign [class="Skype"] $workspace7
+assign [class="TelegramDesktop"] $workspace7
 assign [class="Firefox-esr"] $workspace8
+assign [class="Firefox"] $workspace8
 assign [class="libreoffice"] $workspace9
 assign [class="Thunar"] $workspace10
+assign [class="Nautilus"] $workspace10
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -182,7 +187,7 @@ bindsym $mod+r mode "resize"
 bar {
         #status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        font pango: Carlito, FontAwesome 10
+        font pango: Carlito 9, FontAwesome 9
         position bottom
         #strip_workspace_numbers yes
         #bindsym button4 nop
@@ -200,19 +205,37 @@ bar {
 }
 
 # Set display mode
-#exec_always xrandr --output VGA-0 --mode 1600x1200 --pos 1366x0 --rotate left --output LVDS --primary --mode 1366x768 --pos 0x832 --rotate normal --output HDMI-0 --off
+#exec_always xrandr --output HDMI-2 --scale 2x2 --panning 3200x2400 --pos 2560x0 --rotate left --output HDMI-1 --off --output DP-1 --off --output eDP-1 --scale 1x1 --primary --mode 2560x1440 --pos 0x288 --rotate normal --output DP-2 --off
+#exec_always xrandr --output HDMI-2 --scale 1.5x1.5 --panning 2400x1800 --mode 1600x1200 --pos 2560x0 --rotate left --output HDMI-1 --off --output DP-1 --off --output eDP-1 --scale 1x1 --primary --mode 2560x1440 --pos 0x288 --rotate normal --output DP-2 --off
 
-exec_always feh --bg-center /home/bioangel/Pictures/bg-images/elegance-blue-wallpaper.jpg /home/bioangel/Pictures/bg-images/jOwankA.jpg
+exec_always feh --bg-center /home/bioangel/Pictures/bg-images/pscircle.png #/home/bioangel/Pictures/bg-images/jOwankA.jpg
 
 exec_always compton -f
 
 # Start with following open
 exec chromium
 exec x-terminal-emulator
-exec clipit
-exec gtk-redshift
+exec parcellite
+exec /usr/lib/geoclue-2.0/demos/agent && redshift-gtk
 exec volumeicon
+exec /usr/bin/wicd-gtk
 #exec conky -d
 exec --no-startup-id i3-msg  "workspace $workspace3; exec /home/bioangel/Documents/Local/Telegram/Telegram -- %u"
 exec --no-startup-id i3-msg  "workspace $workspace7; exec /usr/bin/skypeforlinux -- %u"
+
+# Activate compose key for current session
+exec_always --no-startup-id "setxkbmap -option compose:lwin"
+exec_always --no-startup-id "setxkbmap -model pc104 -layout it,us -option grp:shifts_toggle"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+#
+# Screen configuration
+bindsym XF86Display exec arandr  
 
