@@ -3,15 +3,6 @@
 
 # Don't ignore directories, so we can recurse into them
 !*/
-## but ignore these...
-Documents/
-IfsWorkshop_Containers/
-Shared_Mari/
-sublime-text-3/
-.berkshelf/
-.local/
-Corsi/
-src/
 #
 ## Don't ignore .gitignore and README.md, add files using filenames
 # i.e. !.conkyrc, etc
@@ -29,7 +20,6 @@ src/
 !.config/i3/
 # Xresources with URxvt settings
 !.Xresources
-
 # Ignore generic temp file, undo files, etc...
 .~lock.*
 *.sh~
@@ -53,3 +43,17 @@ __pycache__/
 # VSCode specific
 .vscode/
 /etc/X11/xorg.conf.d/
+
+## but ignore these...
+Documents/
+IfsWorkshop_Containers/
+Shared_Mari/
+sublime-text-3/
+.berkshelf/
+local/
+.local/
+
+Corsi/
+
+
+

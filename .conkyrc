@@ -88,13 +88,13 @@ ${template8 Battery\ (external): BAT1}
 ###########
 ${voffset 2}${color0}${font Poky:size=18}P${font}${color}${voffset -8}${goto 36}${font Noto Sans:style=Bold:size=10}${color4} ${exec cat /proc/cpuinfo | grep 'model name' | cut -c14-40 | head -n1}${font}$stippled_hr
 ${voffset 4} ${color}${goto 32}Core1@${freq_g 1} GHz (${cpu cpu1}%)
-${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu1 10,145 999999 FF0000}${color}
+${color1}${goto 50}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c16-23 ;}${font}  ${goto 100}${cpugraph cpu1 10,145 999999 FF0000}${color}
 ${color}${goto 32}Core2@${freq_g 2} GHz (${cpu cpu2}%)
-${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu2 10,145 999999 FF0000}${color}
+${color1}${goto 50}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 0' | cut -c16-23 ;}${font}  ${goto 100}${cpugraph cpu2 10,145 999999 FF0000}${color}
 ${color}${goto 32}Core3@${freq_g 3} GHz (${cpu cpu3}%)
-${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu3 10,145 999999 FF0000}${color}
+${color1}${goto 50}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${goto 100}${cpugraph cpu3 10,145 999999 FF0000}${color}
 ${color}${goto 32}Core4@${freq_g 4} GHz (${cpu cpu4}%)
-${color1}${goto 60}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c18-21 ;}°C${font}  ${goto 100}${cpugraph cpu4 10,145 999999 FF0000}${color}
+${color1}${goto 50}${font Noto Sans:style=Bold:size=8}${execi 30 sensors -A coretemp-isa-0000 | grep 'Core 1' | cut -c16-23 ;}${font}  ${goto 100}${cpugraph cpu4 10,145 999999 FF0000}${color}
 #
 ${goto 32}${color1}System Load:${alignr}${color2}${cpu cpu0}%${color} (${loadavg 1}|${loadavg 2}|${loadavg 3})
 ${template1 Processes: ${processes}}
