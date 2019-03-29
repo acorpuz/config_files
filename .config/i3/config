@@ -239,3 +239,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 #
 # Screen configuration
 bindsym XF86Display exec arandr  
+#
+# Switch to laters workspace activity
+bindsym $mod+Tab [urgent=latest] focus
