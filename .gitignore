@@ -54,8 +54,9 @@ sublime-text-3/
 .berkshelf/
 local/
 .local/
-
 Corsi/
+.vagrant.d/
+spectre-meltdown-checker/
 
 
 
