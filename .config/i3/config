@@ -140,7 +140,7 @@ assign [class="Chromium"] $workspace1
 assign [class="URxvt"] $workspace2
 assign [class="Sublime_text"] $workspace5
 assign [class="Geany"] $workspace5
-assign [class="Code"] $workspace5
+assign [class="Code"] $workspace3
 assign [class="Skype"] $workspace7
 assign [class="TelegramDesktop"] $workspace7
 assign [class="Firefox-esr"] $workspace8
@@ -209,7 +209,7 @@ bar {
 
 exec_always compton -f
 
-### Start with following open
+## Start with following open
 exec chromium
 exec firefox-esr
 exec x-terminal-emulator
@@ -238,7 +238,10 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 #
 # Screen configuration
-bindsym XF86Display exec arandr  
+exec --no-starup-id "$HOME/.config/i3/monitor.sh"
+bindsym XF86Display     exec arandr  
+bindsym $mod+m          exec xrandr --output DP2 --off
+bindsym $mod+shift+m    exec xrandr --output DP2 --auto --right-of eDP1
 #
 # Switch to laters workspace activity
 bindsym $mod+Tab [urgent=latest] focus
